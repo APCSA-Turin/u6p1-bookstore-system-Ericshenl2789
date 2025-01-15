@@ -36,12 +36,11 @@ public class User{
     }
     public String bookListInfo(){
         String result = "";
-        int count = 0;
         for(int i = 0; i < book.length; i++){
             if(book[i] == null){
                 result += "empty\n";
             }else{
-                result += book[i] + "\n";
+                result += book[i].bookInfo() + "\n";
             }
         }
         return result;
@@ -49,7 +48,7 @@ public class User{
 
     public String userInfo(){
         String result = "";
-        result += "Name: " + name + "\nID: " + Id + "\nBooks: " + bookListInfo();
+        result += "Name: " + name + "\nId: " + Id + "\nBooks: \n" + bookListInfo();
         return result;
     } //returns  "Name: []\nID: []\nBooks:\n[]"
        

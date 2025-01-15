@@ -25,58 +25,52 @@ public class BookStore{
 
     public void addUser(User user){
         for(int i = 0; i < users.length; i++){
-            if(users[i] != null){
+            if(users[i] == null){
                 users[i] = user;
+                break;
             }
         }
     } 
 
     public void removeUser(User user){
         for(int i = 0; i < users.length; i++){
-            if(users[i].equals(user)){
+            if(users[i] != null && users[i].equals(user)){
                 users[i] = null;
             }
         }
+        consolidateUsers();
     }
 
     public void consolidateUsers(){
         int count = 0;
         for(int i = 0; i < users.length; i++){
             if(users[i] != null){
-                users[count] = users[i];
+                User temp = users[i];
                 users[i] = null;
+                users[count] = temp;
                 count++;
             }
         }
     }
 
     public void addBook(Book book){
-        //searches for a null value and count the number of nulls(used later)
-        int idx = books.length;
+        //count the number of nulls(used later)
         int count = 0;
         for(int i = 0; i < books.length; i++){
-            if(books[i] == null && idx != books.length){
-                idx = i;
-                count++;
-            } else if(books[i] == null){
+            if(books[i] == null){
                 count ++;
-            }
+            } 
         }
-        //checks if there is a available spot(if there is put the book there)
-        if(idx == books.length){
-            //if there isn't, create a array with an extra spot
-            Book[] temp = new Book[books.length + 1];
-            //copy "books" into temp
-            for(int i = 0; i < books.length; i++){
-                temp[i] = books[i];
-            }
-            //put book at the end
-            temp[books.length] = book;
-            // set "books" to temp
-            books = temp;
-        } else{
-            books[idx] = book;
+        //creates a temporary array
+        Book[] temp = new Book[books.length + 1];
+        //copy "books" into temp
+        for(int i = 0; i < books.length; i++){
+            temp[i] = books[i];
         }
+        //put book at the end
+        temp[books.length] = book;
+        // set "books" to temp
+        books = temp;
 
         //remove extra null values
 
@@ -92,7 +86,20 @@ public class BookStore{
         books = nullRemover;
     }
 
-    public void insertBook(Book book, int index){}
+
+    public void insertBook(Book book, int index){
+        Book[] temp = new Book[books.length+1];
+        int count = 0;
+        for (int i = 0; i < temp.length; i++){
+            if(i!=index){
+                temp[i] = books[count];
+                count++;
+            } else{
+                temp[i] = book;
+            }
+        }
+        books = temp;
+    }
 
     public void removeBook(Book book){
         for(int i = 0; i<books.length;i++){
@@ -108,6 +115,7 @@ public class BookStore{
                             count++;
                         } 
                     }
+                    books =  temp;
                 }
             }
         }
