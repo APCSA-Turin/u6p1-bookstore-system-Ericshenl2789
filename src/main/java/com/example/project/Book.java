@@ -9,6 +9,7 @@ public class Book{
     private int quantity;
     //requires 1 constructor with 5 arguments that intitialize the attribtues of the class.
 
+    //A book constructor with title, author, year of publication, id, and quantity
     public Book(String _title, String _author, int year, String _isbn, int qt){
         title = _title;
         author = _author;
@@ -57,6 +58,8 @@ public class Book{
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    //returns a string containing all the info about the book
 
     public String bookInfo(){
         String result = "";
