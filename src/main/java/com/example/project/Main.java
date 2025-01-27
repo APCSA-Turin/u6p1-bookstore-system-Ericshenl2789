@@ -100,7 +100,7 @@ public class Main {
                         clearScreen();
                         
                         while(userInput != 1){
-                            System.out.println("| Account: " + currentUser.getName() + "\n1. Logout\n2. Check Info\n3. Borrow books\n4. Return books");
+                            System.out.println("| Account: " + currentUser.getName() + "\n| 1. Logout\n| 2. Check Info\n| 3. Borrow books\n| 4. Return books");
                             userInput = scan.nextInt();
                             scan.nextLine();
                             clearScreen();
@@ -134,7 +134,7 @@ public class Main {
                             } 
                             else if(userInput == 4){
                                 System.out.println("| Books: " + currentUser.bookListInfo());
-                                System.out.print("| Enter Name of Book to return");
+                                System.out.print("| Enter Name of Book to return: ");
                                 String bookName = scan.nextLine();
                                 int index = -1;
                                 for(int i = 0; i <5; i++){
