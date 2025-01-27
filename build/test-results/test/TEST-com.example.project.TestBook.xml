@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.project.TestBook" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-01-16T13:28:07" hostname="codespaces-100dcb" time="0.27">
+<testsuite name="com.example.project.TestBook" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-01-27T18:15:55" hostname="codespaces-100dcb" time="0.242">
   <properties/>
-  <testcase name="testBookInfo()" classname="com.example.project.TestBook" time="0.21"/>
-  <testcase name="testBookConstructor()" classname="com.example.project.TestBook" time="0.011"/>
-  <testcase name="testSetters()" classname="com.example.project.TestBook" time="0.004"/>
+  <testcase name="testBookInfo()" classname="com.example.project.TestBook" time="0.182"/>
+  <testcase name="testBookConstructor()" classname="com.example.project.TestBook" time="0.003"/>
+  <testcase name="testSetters()" classname="com.example.project.TestBook" time="0.017"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
