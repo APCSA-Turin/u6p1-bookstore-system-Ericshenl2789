@@ -120,8 +120,8 @@ public class Main {
                                     if(findBookName(bookName, store) != -1){
                                         Book bookToBorrow = store.getBooks()[findBookName(bookName, store)];
                                         bookToBorrow.setQuantity(1);
+                                        currentUser.addBook(new Book(bookToBorrow.getTitle(), bookToBorrow.getAuthor(), bookToBorrow.getYearPublished(), bookToBorrow.getIsbn(), 1));
                                         store.removeBook(bookToBorrow);
-                                        currentUser.addBook(bookToBorrow);
                                         System.out.println("| Press Enter to continue");
                                     } 
                                     else{
@@ -165,7 +165,7 @@ public class Main {
                     clearScreen();
                     
                     while(userInput != 1){
-                        System.out.println("| Admin Account\n| 1. Logout\n| 2. Check Bookstore\n| 3. Add Books\n| 4. Remove Books");
+                        System.out.println("| Admin Account\n| 1. Logout\n| 2. Check Bookstore\n| 3. Add Books\n| 4. Remove Books\n| 5. Check Book");
                         userInput = scan.nextInt();
                         scan.nextLine();
                         clearScreen();
@@ -215,6 +215,19 @@ public class Main {
                             if(findBookName(bookName, store) != -1){
                                 store.removeBook(store.getBooks()[findBookName(bookName, store)]);
                             }else{System.out.println("| No Books found\n| Press Enter to continue");}
+                            scan.nextLine();
+                            clearScreen();
+                        }
+                        else if(userInput == 5){
+                            System.out.println("| Books: " + store.bookStoreBookInfo());
+                            System.out.print("| Enter Book Name: ");
+                            String bookName = scan.nextLine();
+                            if(findBookName(bookName, store) != -1){
+                                System.out.println(store.getBooks()[findBookName(bookName, store)].bookInfo());
+                            } else{
+                                System.out.println("| No book found");
+                            }
+                            System.out.println("| Press Enter to Continue");
                             scan.nextLine();
                             clearScreen();
                         }
